@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="275c2ce7-69a1-4af0-9997-45d867b5045e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/urltester/Examples.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/urltester/Examples.kt" afterDir="false" />
+    <list default="true" id="275c2ce7-69a1-4af0-9997-45d867b5045e" name="Default Changelist" comment="Comments in example">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/test/br/com/urltester/Examples.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/test/br/com/urltester/Examples.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileTestKotlin/last-build.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +90,11 @@
         <option value="Luciano Kelvin" />
       </list>
     </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
@@ -91,7 +126,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.ignored.files" />
   </component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
@@ -232,7 +267,7 @@
     </recent_temporary>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -268,7 +303,8 @@
       <workItem from="1599184252536" duration="3572000" />
       <workItem from="1599486601679" duration="1782000" />
       <workItem from="1602422320643" duration="734000" />
-      <workItem from="1603021299986" duration="19921000" />
+      <workItem from="1603021299986" duration="21275000" />
+      <workItem from="1603147878677" duration="293000" />
     </task>
     <task id="LOCAL-00001" summary="Fist commit">
       <created>1590245791093</created>
@@ -424,7 +460,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603140542266</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Comments in example">
+      <created>1603146534076</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1603146534076</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Comments in example">
+      <created>1603147697545</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1603147697545</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,12 +519,12 @@
       <screen x="60" y="27" width="1860" height="1053" />
     </state>
     <state x="743" y="195" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/60.27.1860.1053/1920.156.1366.768@60.27.1860.1053" timestamp="1599156151857" />
-    <state x="224" y="27" width="900" height="741" key="CommitChangelistDialog2" timestamp="1603146533887">
-      <screen x="0" y="118" width="1366" height="768" />
+    <state x="274" y="27" width="900" height="741" key="CommitChangelistDialog2" timestamp="1603149450038">
+      <screen x="60" y="27" width="1306" height="741" />
     </state>
-    <state x="224" y="27" width="900" height="741" key="CommitChangelistDialog2/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603146533887" />
+    <state x="224" y="27" width="900" height="741" key="CommitChangelistDialog2/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147789654" />
     <state x="1426" y="27" width="1108" height="1053" key="CommitChangelistDialog2/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596285943864" />
-    <state x="274" y="27" width="867" height="741" key="CommitChangelistDialog2/60.27.1306.741@60.27.1306.741" timestamp="1599395868123" />
+    <state x="274" y="27" width="867" height="741" key="CommitChangelistDialog2/60.27.1306.741@60.27.1306.741" timestamp="1603149450038" />
     <state x="365" y="27" width="1225" height="1053" key="CommitChangelistDialog2/60.27.1860.1053/366.1080.1366.768@60.27.1860.1053" timestamp="1599488115107" />
     <state x="118" y="53" width="860" height="814" key="CommitChangelistDialog2/60.27.1860.1053/381.1080.1366.768@60.27.1860.1053" timestamp="1596413430151" />
     <state x="60" y="27" width="1860" height="1053" key="CommitChangelistDialog2/60.27.3226.1053@60.27.3226.1053" timestamp="1595171494027" />
@@ -482,10 +532,10 @@
       <screen x="60" y="27" width="1860" height="1053" />
     </state>
     <state x="773" y="311" width="424" height="491" key="FileChooserDialogImpl/60.27.1860.1053/1920.156.1366.768@60.27.1860.1053" timestamp="1599157459945" />
-    <state width="1260" height="197" key="GridCell.Tab.0.bottom" timestamp="1603146340464">
+    <state width="1260" height="213" key="GridCell.Tab.0.bottom" timestamp="1603147851531">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
-    <state width="1260" height="197" key="GridCell.Tab.0.bottom/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603146340464" />
+    <state width="1260" height="213" key="GridCell.Tab.0.bottom/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147851531" />
     <state width="1814" height="449" key="GridCell.Tab.0.bottom/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596289551292" />
     <state width="1260" height="174" key="GridCell.Tab.0.bottom/60.27.1306.741/1920.163.1366.768@60.27.1306.741" timestamp="1595213578645" />
     <state width="1260" height="191" key="GridCell.Tab.0.bottom/60.27.1306.741/381.1080.1366.768@60.27.1306.741" timestamp="1596889003255" />
@@ -493,10 +543,10 @@
     <state width="1814" height="386" key="GridCell.Tab.0.bottom/60.27.1860.1053/366.1080.1366.768@60.27.1860.1053" timestamp="1599487897442" />
     <state width="1814" height="249" key="GridCell.Tab.0.bottom/60.27.1860.1053/381.1080.1366.768@60.27.1860.1053" timestamp="1596412640018" />
     <state width="1814" height="368" key="GridCell.Tab.0.bottom/60.27.3226.1053@60.27.3226.1053" timestamp="1595171517058" />
-    <state width="1260" height="197" key="GridCell.Tab.0.center" timestamp="1603146340464">
+    <state width="1260" height="213" key="GridCell.Tab.0.center" timestamp="1603147851531">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
-    <state width="1260" height="197" key="GridCell.Tab.0.center/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603146340464" />
+    <state width="1260" height="213" key="GridCell.Tab.0.center/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147851531" />
     <state width="1814" height="449" key="GridCell.Tab.0.center/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596289551292" />
     <state width="1260" height="174" key="GridCell.Tab.0.center/60.27.1306.741/1920.163.1366.768@60.27.1306.741" timestamp="1595213578645" />
     <state width="1260" height="191" key="GridCell.Tab.0.center/60.27.1306.741/381.1080.1366.768@60.27.1306.741" timestamp="1596889003254" />
@@ -504,10 +554,10 @@
     <state width="1814" height="386" key="GridCell.Tab.0.center/60.27.1860.1053/366.1080.1366.768@60.27.1860.1053" timestamp="1599487897442" />
     <state width="1814" height="249" key="GridCell.Tab.0.center/60.27.1860.1053/381.1080.1366.768@60.27.1860.1053" timestamp="1596412640017" />
     <state width="1814" height="368" key="GridCell.Tab.0.center/60.27.3226.1053@60.27.3226.1053" timestamp="1595171517058" />
-    <state width="1260" height="197" key="GridCell.Tab.0.left" timestamp="1603146340464">
+    <state width="1260" height="213" key="GridCell.Tab.0.left" timestamp="1603147851531">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
-    <state width="1260" height="197" key="GridCell.Tab.0.left/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603146340464" />
+    <state width="1260" height="213" key="GridCell.Tab.0.left/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147851531" />
     <state width="1814" height="449" key="GridCell.Tab.0.left/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596289551292" />
     <state width="1260" height="174" key="GridCell.Tab.0.left/60.27.1306.741/1920.163.1366.768@60.27.1306.741" timestamp="1595213578645" />
     <state width="1260" height="191" key="GridCell.Tab.0.left/60.27.1306.741/381.1080.1366.768@60.27.1306.741" timestamp="1596889003254" />
@@ -515,10 +565,10 @@
     <state width="1814" height="386" key="GridCell.Tab.0.left/60.27.1860.1053/366.1080.1366.768@60.27.1860.1053" timestamp="1599487897441" />
     <state width="1814" height="249" key="GridCell.Tab.0.left/60.27.1860.1053/381.1080.1366.768@60.27.1860.1053" timestamp="1596412640017" />
     <state width="1814" height="368" key="GridCell.Tab.0.left/60.27.3226.1053@60.27.3226.1053" timestamp="1595171517058" />
-    <state width="1260" height="197" key="GridCell.Tab.0.right" timestamp="1603146340464">
+    <state width="1260" height="213" key="GridCell.Tab.0.right" timestamp="1603147851531">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
-    <state width="1260" height="197" key="GridCell.Tab.0.right/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603146340464" />
+    <state width="1260" height="213" key="GridCell.Tab.0.right/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147851531" />
     <state width="1814" height="449" key="GridCell.Tab.0.right/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596289551292" />
     <state width="1260" height="174" key="GridCell.Tab.0.right/60.27.1306.741/1920.163.1366.768@60.27.1306.741" timestamp="1595213578645" />
     <state width="1260" height="191" key="GridCell.Tab.0.right/60.27.1306.741/381.1080.1366.768@60.27.1306.741" timestamp="1596889003255" />
@@ -526,10 +576,10 @@
     <state width="1814" height="386" key="GridCell.Tab.0.right/60.27.1860.1053/366.1080.1366.768@60.27.1860.1053" timestamp="1599487897442" />
     <state width="1814" height="249" key="GridCell.Tab.0.right/60.27.1860.1053/381.1080.1366.768@60.27.1860.1053" timestamp="1596412640017" />
     <state width="1814" height="368" key="GridCell.Tab.0.right/60.27.3226.1053@60.27.3226.1053" timestamp="1595171517058" />
-    <state width="1260" height="213" key="GridCell.Tab.1.bottom" timestamp="1603126520972">
+    <state width="1260" height="213" key="GridCell.Tab.1.bottom" timestamp="1603147851531">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
-    <state width="1260" height="213" key="GridCell.Tab.1.bottom/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603126520972" />
+    <state width="1260" height="213" key="GridCell.Tab.1.bottom/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147851531" />
     <state width="1814" height="449" key="GridCell.Tab.1.bottom/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596289551292" />
     <state width="1260" height="174" key="GridCell.Tab.1.bottom/60.27.1306.741/1920.163.1366.768@60.27.1306.741" timestamp="1595213578645" />
     <state width="1260" height="191" key="GridCell.Tab.1.bottom/60.27.1306.741/381.1080.1366.768@60.27.1306.741" timestamp="1596887954456" />
@@ -537,10 +587,10 @@
     <state width="1814" height="386" key="GridCell.Tab.1.bottom/60.27.1860.1053/366.1080.1366.768@60.27.1860.1053" timestamp="1599487897442" />
     <state width="1814" height="249" key="GridCell.Tab.1.bottom/60.27.1860.1053/381.1080.1366.768@60.27.1860.1053" timestamp="1596412640018" />
     <state width="1814" height="368" key="GridCell.Tab.1.bottom/60.27.3226.1053@60.27.3226.1053" timestamp="1595171517059" />
-    <state width="1260" height="213" key="GridCell.Tab.1.center" timestamp="1603126520972">
+    <state width="1260" height="213" key="GridCell.Tab.1.center" timestamp="1603147851531">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
-    <state width="1260" height="213" key="GridCell.Tab.1.center/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603126520972" />
+    <state width="1260" height="213" key="GridCell.Tab.1.center/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147851531" />
     <state width="1814" height="449" key="GridCell.Tab.1.center/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596289551292" />
     <state width="1260" height="174" key="GridCell.Tab.1.center/60.27.1306.741/1920.163.1366.768@60.27.1306.741" timestamp="1595213578645" />
     <state width="1260" height="191" key="GridCell.Tab.1.center/60.27.1306.741/381.1080.1366.768@60.27.1306.741" timestamp="1596887954455" />
@@ -548,10 +598,10 @@
     <state width="1814" height="386" key="GridCell.Tab.1.center/60.27.1860.1053/366.1080.1366.768@60.27.1860.1053" timestamp="1599487897442" />
     <state width="1814" height="249" key="GridCell.Tab.1.center/60.27.1860.1053/381.1080.1366.768@60.27.1860.1053" timestamp="1596412640018" />
     <state width="1814" height="368" key="GridCell.Tab.1.center/60.27.3226.1053@60.27.3226.1053" timestamp="1595171517059" />
-    <state width="1260" height="213" key="GridCell.Tab.1.left" timestamp="1603126520972">
+    <state width="1260" height="213" key="GridCell.Tab.1.left" timestamp="1603147851531">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
-    <state width="1260" height="213" key="GridCell.Tab.1.left/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603126520972" />
+    <state width="1260" height="213" key="GridCell.Tab.1.left/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147851531" />
     <state width="1814" height="449" key="GridCell.Tab.1.left/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596289551292" />
     <state width="1260" height="174" key="GridCell.Tab.1.left/60.27.1306.741/1920.163.1366.768@60.27.1306.741" timestamp="1595213578645" />
     <state width="1260" height="191" key="GridCell.Tab.1.left/60.27.1306.741/381.1080.1366.768@60.27.1306.741" timestamp="1596887954455" />
@@ -559,10 +609,10 @@
     <state width="1814" height="386" key="GridCell.Tab.1.left/60.27.1860.1053/366.1080.1366.768@60.27.1860.1053" timestamp="1599487897442" />
     <state width="1814" height="249" key="GridCell.Tab.1.left/60.27.1860.1053/381.1080.1366.768@60.27.1860.1053" timestamp="1596412640018" />
     <state width="1814" height="368" key="GridCell.Tab.1.left/60.27.3226.1053@60.27.3226.1053" timestamp="1595171517059" />
-    <state width="1260" height="213" key="GridCell.Tab.1.right" timestamp="1603126520972">
+    <state width="1260" height="213" key="GridCell.Tab.1.right" timestamp="1603147851531">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
-    <state width="1260" height="213" key="GridCell.Tab.1.right/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603126520972" />
+    <state width="1260" height="213" key="GridCell.Tab.1.right/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147851531" />
     <state width="1814" height="449" key="GridCell.Tab.1.right/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596289551292" />
     <state width="1260" height="174" key="GridCell.Tab.1.right/60.27.1306.741/1920.163.1366.768@60.27.1306.741" timestamp="1595213578645" />
     <state width="1260" height="191" key="GridCell.Tab.1.right/60.27.1306.741/381.1080.1366.768@60.27.1306.741" timestamp="1596887954456" />
@@ -586,6 +636,18 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state width="1814" height="368" key="GridCell.Tab.2.right/1366.0.1920.1080/0.148.1366.768@1366.0.1920.1080" timestamp="1596287867660" />
+    <state x="181" y="90" width="1044" height="629" key="MergeDialog" timestamp="1603149356723">
+      <screen x="60" y="27" width="1306" height="741" />
+    </state>
+    <state x="181" y="90" width="1044" height="629" key="MergeDialog/60.27.1306.741@60.27.1306.741" timestamp="1603149356723" />
+    <state x="418" y="115" width="580" height="571" key="MultipleFileMergeDialog" timestamp="1603149356729">
+      <screen x="60" y="27" width="1306" height="741" />
+    </state>
+    <state x="418" y="115" width="580" height="571" key="MultipleFileMergeDialog/60.27.1306.741@60.27.1306.741" timestamp="1603149356729" />
+    <state x="202" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1603147673728">
+      <screen x="0" y="118" width="1366" height="768" />
+    </state>
+    <state x="202" y="31" width="1022" height="737" key="SettingsEditor/1366.0.1920.1080/0.118.1366.768@0.118.1366.768" timestamp="1603147673728" />
     <state x="259" y="228" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603146536613">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
@@ -608,6 +670,10 @@
     <state x="227" y="163" width="704" height="766" key="find.popup/60.27.1860.1053/1920.156.1366.768@60.27.1860.1053" timestamp="1599156659245" />
     <state x="227" y="163" width="704" height="766" key="find.popup/60.27.1860.1053/381.1080.1366.768@60.27.1860.1053" timestamp="1596397252676" />
     <state x="349" y="163" width="1109" height="765" key="find.popup/60.27.3226.1053@60.27.3226.1053" timestamp="1595171431443" />
+    <state x="439" y="111" width="537" height="579" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603149342316">
+      <screen x="60" y="27" width="1306" height="741" />
+    </state>
+    <state x="439" y="111" width="537" height="579" key="git4idea.branch.GitSmartOperationDialog/60.27.1306.741@60.27.1306.741" timestamp="1603149342316" />
     <state x="331" y="270" width="494" height="483" key="run.anything.popup" timestamp="1603111218795">
       <screen x="0" y="118" width="1366" height="768" />
     </state>
