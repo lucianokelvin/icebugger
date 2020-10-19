@@ -8,8 +8,6 @@ import java.time.LocalDateTime
 
 
 data class TestExecution(
-        val id: Long? = null,
-
         val testConfig: TestConfig,
 
         val date: LocalDateTime = LocalDateTime.now(),

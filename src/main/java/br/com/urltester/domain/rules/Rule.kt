@@ -1,18 +1,11 @@
 package br.com.urltester.domain.rules
 
 import br.com.urltester.domain.endpoints.Param
-import br.com.urltester.domain.endpoints.TestConfig
 import br.com.urltester.domain.endpoints.TestExecution
 import br.com.urltester.pool.model.PoolFactory
 
 
 data class Rule(
-        val id: Long? = null,
-
-        var testConfig: TestConfig? = null,
-
-        var testExecutions: List<RuleTestExecution> = listOf(),
-
         val param: Param,
 
         val comparator: Comparator = Comparator.EQUALS,
@@ -36,7 +29,7 @@ data class Rule(
     }
 
     override fun toString(): String {
-        return "Rule(id=$id)"
+        return "Rule(param=$param, comparator=$comparator, value='$value', isNull=$isNull, expectedResponse=$expectedResponse)"
     }
 
 

@@ -3,8 +3,6 @@ package br.com.urltester.domain.endpoints
 import java.util.*
 
 data class Param(
-        val id: Long? = null,
-
         val name: String,
 
         val type: String = "Other",
@@ -15,8 +13,6 @@ data class Param(
 
         val pool: Pool? = null,
 
-        var endpoint: Endpoint? = null,
-
         val apiParamType: ApiParamType = ApiParamType.QUERY
 ) {
 
@@ -24,7 +20,7 @@ data class Param(
 
         fun header(name: String, endpoint: Endpoint? = null, pool: String): Param {
             val pollObject = Pool(name = UUID.randomUUID().toString(), description = "None", value = pool)
-            return Param(name = name, type = "Other", nullable = false, fixed = true, endpoint = endpoint, apiParamType = ApiParamType.HEADER, pool = pollObject)
+            return Param(name = name, type = "Other", nullable = false, fixed = true, apiParamType = ApiParamType.HEADER, pool = pollObject)
         }
 
         fun path(name: String, type: String = "Other", nullable: Boolean = false, fixed: Boolean = false, pool: String): Param {
@@ -40,6 +36,6 @@ data class Param(
     }
 
     override fun toString(): String {
-        return "Param(id=$id, name='$name', type='$type', fixed=$fixed, nullable=$nullable, pool=$pool)"
+        return "Param(name='$name', type='$type', fixed=$fixed, nullable=$nullable, pool=$pool)"
     }
 }

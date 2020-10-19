@@ -4,8 +4,6 @@ import javax.validation.constraints.NotEmpty
 
 
 data class Endpoint(
-        val id: Long? = null,
-
         @NotEmpty
         val url: String,
 
@@ -14,7 +12,7 @@ data class Endpoint(
         var params: MutableList<Param> = mutableListOf()
 ) {
     override fun toString(): String {
-        return "Endpoint(id=$id, url='$url', method=$method)"
+        return "Endpoint(url='$url', method=$method)"
     }
 
     fun addParam(param: Param): Endpoint {

@@ -8,17 +8,11 @@ import org.springframework.transaction.annotation.Transactional
 @Service
 open class TestConfigService {
 
-
     @Autowired
     lateinit var testExecutionService: TestExecutionService
 
-
     @Transactional
     open fun itsAllCorrect(testConfig: TestConfig): Boolean {
-        testConfig.rules.forEach { it.testConfig = testConfig }
-        testConfig.endpoint.params.forEach {
-            it.endpoint = testConfig.endpoint
-        }
         val generateTestsExecution = testConfig.generateTestsExecution()
 
         var corrects = 0L

@@ -7,8 +7,6 @@ import br.com.urltester.utils.CartesianPlan
 
 
 data class TestConfig(
-        val id: Long? = null,
-
         val defaultResponse: Int = 200,
 
         val endpoint: Endpoint,
@@ -61,7 +59,7 @@ data class TestConfig(
         return combinations.map {
             val testExecution = TestExecution(
                     testConfig = this,
-                    params = it.map { it.copy(id = null) }
+                    params = it
             )
             val filter = this.rules.filter { it.match(testExecution) }.map { RuleTestExecution(testExecution = testExecution, rule = it) }
 
@@ -72,14 +70,13 @@ data class TestConfig(
 
             testExecution.rules = filter
 
-            testExecution.params.forEach { it.testExecution = testExecution }
             testExecution
         }
 
     }
 
     override fun toString(): String {
-        return "TestConfig(id=$id, defaultResponse=$defaultResponse)"
+        return "TestConfig(defaultResponse=$defaultResponse)"
     }
 
 
