@@ -17,6 +17,7 @@ data class TestConfig(
 
 ) {
 
+
     fun addRule(rule: String, expectedResponse: Long): TestConfig {
         this.rules.add(toRule(rule, expectedResponse))
         return this

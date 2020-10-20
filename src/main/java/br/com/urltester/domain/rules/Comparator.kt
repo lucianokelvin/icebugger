@@ -7,8 +7,8 @@ enum class Comparator(var symbol: String) {
     LESS_THAN("<"),
     GREATER_THAN_EQUALS(">="),
     LESS_THAN_EQUALS("<="),
-    STARTS_WITH("STARTS_WITH"),
-    ENDS_WITH("ENDS_WITH"),
-    CONTAINS("CONTAINS"),
-    NOT_CONTAINS("NOT_CONTAINS");
+    STARTS_WITH("%*"),
+    ENDS_WITH("*%"),
+    CONTAINS("%*%"),
+    NOT_CONTAINS("!%*%");
 }

@@ -54,7 +54,8 @@ open class Examples {
 
 //        Config Rules
         val testConfig = TestConfig(endpoint = endpoint)
-                .addRule("month=13", 400L)
+                .addRule("month>13", 400L)
+                .addRule("month<1", 400L)
 
 //        Generate and execute Tests
         Assertions.assertTrue(testConfigService.itsAllCorrect(testConfig))
