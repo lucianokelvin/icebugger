@@ -39,8 +39,8 @@ class PoolTest {
 
     @Test
     fun generateRandomPoolList() {
-        val emailList = EmailPool().new().randomList()
-        val emailListNullable = EmailPool().new().randomList(shouldHaveNullValue = true)
+        val emailList = EmailPool().new().randomList(10L)
+        val emailListNullable = EmailPool().new().randomList(shouldHaveNullValue = true, quantity = 10L)
         val emailListSize = EmailPool().new().randomList(quantity = 20L)
         val emailListSizeNullable = EmailPool().new().randomList(quantity = 20L, shouldHaveNullValue = true)
 
@@ -62,7 +62,7 @@ class PoolTest {
         val rule1 = Rule(param = param, value = emails[0])
         val rule2 = Rule(param = param, value = emails[1])
 
-        val list = emailPool.randomList(rules = listOf(rule1, rule2))
+        val list = emailPool.randomList(rules = listOf(rule1, rule2), quantity = 10L)
         val listWithNull = emailPool.randomList(rules = listOf(rule1, rule2), shouldHaveNullValue = true, quantity = 15)
 
         assert(list.size == 10 && list.containsAll(emails))

@@ -9,8 +9,8 @@ import org.springframework.web.client.RestTemplate
 
 
 @Service
-open class TestExecutionService {
 
+open class TestExecutionService {
 
     @Transactional
     open fun executeTest(testExecution: TestExecution): TestExecution {

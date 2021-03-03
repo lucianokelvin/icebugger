@@ -2,6 +2,7 @@ package br.com.urltester.domain.endpoints
 
 import br.com.urltester.domain.rules.Rule
 import br.com.urltester.domain.rules.RuleTestExecution
+import br.com.urltester.exceptions.InvalidRuleException
 import br.com.urltester.pool.model.PoolFactory
 import br.com.urltester.utils.CartesianPlan
 
@@ -17,6 +18,7 @@ data class TestConfig(
 
 ) {
 
+    val RULE_REGEX = "((.*)(\\W)(.*))+".toRegex();
 
     fun addRule(rule: String, expectedResponse: Long): TestConfig {
         this.rules.add(toRule(rule, expectedResponse))
@@ -24,10 +26,10 @@ data class TestConfig(
     }
 
     fun toRule(rule: String, expectedResponse: Long): Rule {
-        val matches = "((.*)(\\W)(.*))+".toRegex().find(rule)?.groupValues ?: listOf()
+        val matches = RULE_REGEX.find(rule)?.groupValues.orEmpty()
 
         if (matches.isEmpty()) {
-            throw RuntimeException("invalid Rule")
+            throw InvalidRuleException(rule)
         }
 
         val param = endpoint.params.find { it.name == matches[2] }
@@ -62,11 +64,10 @@ data class TestConfig(
                     testConfig = this,
                     params = it
             )
-            val filter = this.rules.filter { it.match(testExecution) }.map { RuleTestExecution(testExecution = testExecution, rule = it) }
+            val filter = this.rules.asSequence().filter { it.match(testExecution) }.map { RuleTestExecution(testExecution = testExecution, rule = it) }.toList()
 
             if (filter.isNotEmpty()) {
-                val expectedResponse = filter.maxBy { it.rule?.expectedResponse ?: 0L }?.rule?.expectedResponse ?: 200L
-                testExecution.expectedResponse = expectedResponse
+                testExecution.expectedResponse = filter.maxBy { it.rule?.expectedResponse ?: 0L }?.rule?.expectedResponse ?: 200L
             }
 
             testExecution.rules = filter

@@ -10,7 +10,7 @@ class CartesianPlan {
             var mainSet = params.first().map { listOf(it) }
 
             for (n in 1 until params.size) {
-                mainSet = cartesianPlan<ParamValue>(mainSet, params[n])
+                mainSet = cartesianPlan(mainSet, params[n])
             }
 
             return mainSet

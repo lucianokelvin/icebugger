@@ -5,8 +5,6 @@ import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
 import java.time.LocalDateTime
 
-
-
 data class TestExecution(
         val testConfig: TestConfig,
 
