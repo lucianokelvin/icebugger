@@ -7,11 +7,7 @@ import kotlin.random.Random
 class FloatPool(private val min: Float = Float.MIN_VALUE, private val max: Float = Float.MAX_VALUE) : PoolModel<Float>() {
 
     override fun getRandomValue(): Float {
-        var value = Random.nextFloat()
-        while (value < min || value > max) {
-            value = Random.nextFloat()
-        }
-        return value
+        return Random.nextDouble(min.toDouble(), max.toDouble()).toFloat()
     }
 
     override fun convert(value: String?): Float? {

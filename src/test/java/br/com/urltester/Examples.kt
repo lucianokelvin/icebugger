@@ -6,6 +6,7 @@ import br.com.urltester.domain.endpoints.Param
 import br.com.urltester.domain.endpoints.TestConfig
 import br.com.urltester.service.TestConfigService
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -18,6 +19,7 @@ open class Examples {
     lateinit var testConfigService: TestConfigService
 
     @Test
+    @Disabled
     open fun generateRandomTestWithSpecifPool() {
 //        Config endpoint
         val endpoint = Endpoint(
@@ -39,6 +41,7 @@ open class Examples {
 
 
     @Test
+    @Disabled
     open fun generateRandomTestNumberAPI() {
 //        Config endpoint
         val endpoint = Endpoint(

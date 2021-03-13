@@ -7,11 +7,7 @@ import kotlin.random.Random
 class DoublePool(private val min: Double = Double.MIN_VALUE, private val max: Double = Double.MAX_VALUE) : PoolModel<Double>() {
 
     override fun getRandomValue(): Double {
-        var value = Random.nextDouble()
-        while (value < min || value > max) {
-            value = Random.nextDouble()
-        }
-        return value
+        return Random.nextDouble(min, max)
     }
 
     override fun convert(value: String?): Double? {

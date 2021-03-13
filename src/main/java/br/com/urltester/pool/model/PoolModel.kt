@@ -24,7 +24,24 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
         }
     }
 
-    fun new(): PoolModel<T> {
+    open fun inc(val1: String): String {
+        val1.toIntOrNull()?.let {
+            return (it + 1).toString();
+        }
+
+        return val1 + "a"
+    }
+
+    open fun dec(val1: String): String {
+        val1.toIntOrNull()?.let {
+            return (it - 1).toString();
+        }
+
+        return val1.substring(0, val1.length - 2)
+    }
+
+
+    fun instance(): PoolModel<T> {
         if (poolModel == null) {
             poolModel = this
         }
@@ -50,42 +67,36 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
 
 //        Put a null value if necessary
         if (shouldHaveNullValue && !list.contains(null)) {
-            list.removeAt(list.size - 1)
-            list.add(null)
+            list[list.size - 1] = null
         }
 
         return list
     }
 
-
-    private fun ruleToList(rule: Rule): T? {
-        var ruleValue: T?
-
-        when (rule.comparator) {
-            Comparator.EQUALS -> {
-                ruleValue = rule.value as T
-            }
-            in listOf(Comparator.CONTAINS, Comparator.ENDS_WITH) -> {
-                var stringValue = getRandomValue().toString()
-                stringValue = stringValue.substring(0, (stringValue.length) - rule.value.length)
-                stringValue += rule.value
-                ruleValue = stringValue as T
-            }
-            Comparator.STARTS_WITH -> {
-                var stringValue = getRandomValue().toString()
-                stringValue = stringValue.substring(rule.value.length, stringValue.length)
-                stringValue = rule.value + stringValue
-                ruleValue = stringValue as T
-            }
-            else -> {
-                ruleValue = getRandomValue()
-                while (ruleValue == rule.value) {
-                    ruleValue = getRandomValue()
-                }
-            }
+    private fun <T> getStringToRule(rule: Rule): T {
+        val stringValue = if (listOf(Comparator.ENDS_WITH, Comparator.CONTAINS).contains(rule.comparator)) {
+            getStringWithSufix(rule)
+        } else {
+            getStringWithPrefix(rule)
         }
-        return ruleValue
+
+        return stringValue as T
     }
+
+    private fun getStringWithPrefix(rule: Rule): String {
+        var stringValue = getRandomValue().toString()
+        stringValue = stringValue.substring(rule.value.length, stringValue.length)
+        return rule.value + stringValue
+
+    }
+
+    private fun getStringWithSufix(rule: Rule): String {
+        var stringValue = getRandomValue().toString()
+        stringValue = stringValue.substring(0, (stringValue.length) - rule.value.length)
+        stringValue += rule.value
+        return stringValue
+    }
+
 
     private fun valuesToRules(rules: List<Rule>): List<T?> {
         return rules.map {
@@ -93,7 +104,7 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
 
             when (it.comparator) {
                 Comparator.EQUALS -> {
-                    ruleValue = it.value as T
+                    ruleValue = convert(it.value)
                 }
                 Comparator.DIFFERENT -> {
                     ruleValue = getRandomValue()
@@ -101,23 +112,14 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
                         ruleValue = getRandomValue()
                     }
                 }
-                in listOf(Comparator.CONTAINS, Comparator.ENDS_WITH) -> {
-                    var stringValue = getRandomValue().toString()
-                    stringValue = stringValue.substring(0, (stringValue.length) - it.value.length)
-                    stringValue += it.value
-                    ruleValue = stringValue as T
-                }
-                Comparator.STARTS_WITH -> {
-                    var stringValue = getRandomValue().toString()
-                    stringValue = stringValue.substring(it.value.length, stringValue.length)
-                    stringValue = it.value + stringValue
-                    ruleValue = stringValue as T
+                in listOf(Comparator.CONTAINS, Comparator.ENDS_WITH, Comparator.STARTS_WITH) -> {
+                    ruleValue = getStringToRule<T>(it)
                 }
                 Comparator.GREATER_THAN, Comparator.GREATER_THAN_EQUALS -> {
-                    ruleValue = (it.value.toInt() + 1) as T
+                    ruleValue = (inc(it.value)) as T
                 }
                 Comparator.LESS_THAN, Comparator.LESS_THAN_EQUALS -> {
-                    ruleValue = (it.value.toInt() - 1) as T
+                    ruleValue = (dec(it.value)) as T
                 }
                 else -> {
                     ruleValue = getRandomValue()

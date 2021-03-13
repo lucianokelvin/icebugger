@@ -9,11 +9,11 @@ class PoolFactory {
     companion object {
         private fun getPoll(type: PoolType, values: String = ""): PoolModel<*> {
             return when (type) {
-                PoolType.CHAR -> CharPool().new()
-                PoolType.STRING -> StringPool().new()
-                PoolType.NATURAL -> NaturalPool().new()
-                PoolType.INTEGER -> IntegerPool().new()
-                PoolType.EMAIL -> EmailPool().new()
+                PoolType.CHAR -> CharPool().instance()
+                PoolType.STRING -> StringPool().instance()
+                PoolType.NATURAL -> NaturalPool().instance()
+                PoolType.INTEGER -> IntegerPool().instance()
+                PoolType.EMAIL -> EmailPool().instance()
                 PoolType.OTHER -> GenericPool(value = values)
             }
         }

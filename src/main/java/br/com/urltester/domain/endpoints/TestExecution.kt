@@ -6,17 +6,18 @@ import org.springframework.http.MediaType
 import java.time.LocalDateTime
 
 data class TestExecution(
-        val testConfig: TestConfig,
+    val testConfig: TestConfig,
 
-        val date: LocalDateTime = LocalDateTime.now(),
+    val date: LocalDateTime = LocalDateTime.now(),
 
-        var response: Long? = null,
+    var response: Long? = null,
 
-        var expectedResponse: Long = 200L,
+    var expectedResponse: Long = 200L,
 
-        val params: List<ParamValue> = listOf(),
+    val params: List<ParamValue> = listOf(),
 
-        var rules: List<RuleTestExecution> = listOf()) {
+    var rules: List<RuleTestExecution> = listOf()
+) {
 
     fun isCorrect(): Boolean {
         return expectedResponse == response
@@ -24,16 +25,17 @@ data class TestExecution(
 
     fun toURL(): String {
         var url = testConfig.endpoint.url
-//    Path parameters
-        val pathParameters = params.filter { it.param.apiParamType == ApiParamType.PATH }
-        pathParameters.forEach {
+
+        //  Path parameters
+        val pathParameters = params.filter { it.param.apiParamType == ApiParamType.PATH }.forEach {
             url = url.replace("{${it.param.name}}", it.value ?: "")
         }
 
         //Query Parameters
         val queryParameters = params.filter { it.param.apiParamType == ApiParamType.QUERY }
         if (queryParameters.isNotEmpty()) {
-            val queryParameterString = queryParameters.joinToString(separator = "&", prefix = "?") { it.param.name + "=" + it.value }
+            val queryParameterString =
+                queryParameters.joinToString(separator = "&", prefix = "?") { it.param.name + "=" + it.value }
             url += queryParameterString
         }
 

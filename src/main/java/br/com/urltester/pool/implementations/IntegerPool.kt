@@ -3,7 +3,7 @@ package br.com.urltester.pool.implementations
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.pool.model.PoolModel
 
-class IntegerPool(private val min: Int = Integer.MIN_VALUE, private val max: Int = Integer.MAX_VALUE) : PoolModel<Int>() {
+open class IntegerPool(private val min: Int = Integer.MIN_VALUE, private val max: Int = Integer.MAX_VALUE) : PoolModel<Int>() {
 
     override fun getRandomValue(): Int {
         return (min..max).random()

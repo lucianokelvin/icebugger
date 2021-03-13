@@ -29,13 +29,16 @@ open class TestConfigService {
                 erros++
             }
         }
-        val errorsTests = generateTestsExecution.filter { !it.isCorrect() }
+
+        val executionsResuts = generateTestsExecution.groupBy { it.isCorrect() }
+        val errorsTests = executionsResuts[false] ?: emptyList()
+        val correctsTests = executionsResuts[true] ?: emptyList()
+
+        println("Total : ${generateTestsExecution.size}")
+        println("Corrects Tests : ${correctsTests.size}")
+        println("Failed Tests : ${errorsTests.size}")
 
         if (erros > 0L) {
-            println("Total : ${generateTestsExecution.size}")
-            println("Corrects Tests : ${generateTestsExecution.filter { it.isCorrect() }.size}")
-            println("Failed Tests : ${errorsTests.size}")
-
             println("##################### FAILED URlS ###############################")
             errorsTests.forEach {
                 it.printAsFailed()

@@ -3,7 +3,7 @@ package br.com.urltester.pool.implementations
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.pool.model.PoolModel
 
-class StringPool(private val maxSize: Int = 10) : PoolModel<String>() {
+open class StringPool(private val maxSize: Int = 10) : PoolModel<String>() {
 
     override fun getRandomValue(): String {
         val poll = CharPool()

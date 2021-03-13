@@ -5,7 +5,8 @@ import br.com.urltester.pool.model.PoolModel
 import java.time.LocalDate
 import java.util.concurrent.ThreadLocalRandom
 
-class DatePool(private val from: LocalDate = LocalDate.MIN, private val to: LocalDate = LocalDate.MAX) : PoolModel<LocalDate>() {
+class DatePool(private val from: LocalDate = LocalDate.MIN, private val to: LocalDate = LocalDate.MAX) :
+    PoolModel<LocalDate>() {
 
     override fun getRandomValue(): LocalDate {
         val startEpochDay = from.toEpochDay()
@@ -15,15 +16,15 @@ class DatePool(private val from: LocalDate = LocalDate.MIN, private val to: Loca
     }
 
     override fun convert(value: String?): LocalDate? {
-        if (value == null) {
-            return null
+        value?.let {
+            val year = it.substring(0, 4).toInt()
+            val month = it.substring(5, 7).toInt()
+            val day = it.substring(8, 10).toInt()
+
+            return LocalDate.of(year, month, day)
         }
 
-        val year = value.substring(0, 4).toInt()
-        val month = value.substring(5, 7).toInt()
-        val day = value.substring(8, 10).toInt()
-
-        return LocalDate.of(year, month, day)
+        return null
     }
 
 
@@ -37,6 +38,16 @@ class DatePool(private val from: LocalDate = LocalDate.MIN, private val to: Loca
             Comparator.LESS_THAN_EQUALS -> convert(val1)!! <= convert(val2)
             else -> false
         }
+    }
+
+    override fun inc(val1: String): String {
+        val converted = convert(val1)
+        return converted?.plusDays(1).toString()
+    }
+
+    override fun dec(val1: String): String {
+        val converted = convert(val1)
+        return converted?.minusDays(1).toString()
     }
 
 }
