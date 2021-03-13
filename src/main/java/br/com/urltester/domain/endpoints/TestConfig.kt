@@ -32,12 +32,15 @@ data class TestConfig(
             throw InvalidRuleException(rule)
         }
 
+
         val param = endpoint.params.find { it.name == matches[2] }
         val comparator = br.com.urltester.domain.rules.Comparator.values().find { it.symbol == matches[3] }
         val value = matches[4]
 
         return Rule(param = param!!, comparator = comparator!!, value = value, expectedResponse = expectedResponse)
     }
+
+
 
 
     fun generateTestsExecution(): List<TestExecution> {

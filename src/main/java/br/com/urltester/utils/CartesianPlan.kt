@@ -16,12 +16,12 @@ class CartesianPlan {
             return mainSet
         }
 
-        private fun <T> cartesianPlan(mainSet: List<List<T>>, newSet: List<T>): List<List<T>> {
+        private fun <T> cartesianPlan(mainList: List<List<T>>, newElements: List<T>): List<List<T>> {
             val result = mutableListOf<List<T>>()
-            for (element1 in mainSet) {
-                for (element2 in newSet) {
-                    val newList = element1.toMutableList()
-                    newList.add(element2)
+            for (list in mainList) {
+                for (newParam in newElements) {
+                    val newList = list.toMutableList()
+                    newList.add(newParam)
                     result.add(newList)
                 }
             }

@@ -18,5 +18,4 @@ class BooleanPoolTest : ModelPoolTest(BooleanPool().instance()) {
             Comparator.DIFFERENT
         )
 
-
 }

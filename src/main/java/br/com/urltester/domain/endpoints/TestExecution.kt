@@ -27,7 +27,7 @@ data class TestExecution(
         var url = testConfig.endpoint.url
 
         //  Path parameters
-        val pathParameters = params.filter { it.param.apiParamType == ApiParamType.PATH }.forEach {
+        params.asSequence().filter { it.param.apiParamType == ApiParamType.PATH }.forEach {
             url = url.replace("{${it.param.name}}", it.value ?: "")
         }
 
@@ -42,19 +42,9 @@ data class TestExecution(
         return url
     }
 
-
-    fun print() {
-        println("------------------------------------------------------------------------------------------")
-        println(this.toURL())
-        println("#############    HEADERS      ###################################")
-        params.filter { it.param.apiParamType == ApiParamType.HEADER }.forEach {
-            println("${it.param.name} = ${it.value}")
-        }
-    }
-
     fun printAsFailed() {
         print(this.toURL())
-        println("  |   Expected Response was $expectedResponse but real was $response")
+        println(" | Expected Response was $expectedResponse but real was $response")
     }
 
 
