@@ -12,6 +12,18 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
         return values.random()
     }
 
+
+    open fun getRandomValueDiff(different: String? = null): T {
+        var ruleValue = getRandomValue()
+
+        different?.let {
+            while (ruleValue == convert(it)) {
+                ruleValue = getRandomValue()
+            }
+        }
+        return ruleValue
+    }
+
     open fun convert(value: String?): T? {
         return value as T
     }
@@ -24,20 +36,20 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
         }
     }
 
-    open fun inc(val1: String): String {
-        val1.toIntOrNull()?.let {
+    open fun inc(value: String): String {
+        value.toIntOrNull()?.let {
             return (it + 1).toString();
         }
 
-        return val1 + "a"
+        return value.plus("a")
     }
 
-    open fun dec(val1: String): String {
-        val1.toIntOrNull()?.let {
+    open fun dec(value: String): String {
+        value.toIntOrNull()?.let {
             return (it - 1).toString();
         }
 
-        return val1.substring(0, val1.length - 2)
+        return value.dropLast(1)
     }
 
 
@@ -74,55 +86,45 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
     }
 
     private fun <T> getStringToRule(rule: Rule): T {
-        val stringValue = if (listOf(Comparator.ENDS_WITH, Comparator.CONTAINS).contains(rule.comparator)) {
-            getStringWithSufix(rule)
+        return if (listOf(Comparator.ENDS_WITH, Comparator.CONTAINS).contains(rule.comparator)) {
+            getStringWithSuffix(rule)
         } else {
             getStringWithPrefix(rule)
-        }
+        } as T
 
-        return stringValue as T
     }
 
     private fun getStringWithPrefix(rule: Rule): String {
-        var stringValue = getRandomValue().toString()
-        stringValue = stringValue.substring(rule.value.length, stringValue.length)
-        return rule.value + stringValue
-
+        val stringValue = getRandomValue().toString()
+        return rule.value + stringValue.substring(rule.value.length, stringValue.length)
     }
 
-    private fun getStringWithSufix(rule: Rule): String {
-        var stringValue = getRandomValue().toString()
-        stringValue = stringValue.substring(0, (stringValue.length) - rule.value.length)
-        stringValue += rule.value
-        return stringValue
+    private fun getStringWithSuffix(rule: Rule): String {
+        val stringValue = getRandomValue().toString()
+        return stringValue.substring(0, (stringValue.length) - rule.value.length) + rule.value
     }
 
 
     private fun valuesToRules(rules: List<Rule>): List<T?> {
         return rules.map {
-            var ruleValue: T?
-
-            when (it.comparator) {
+            val ruleValue: T? = when (it.comparator) {
                 Comparator.EQUALS -> {
-                    ruleValue = convert(it.value)
+                    convert(it.value)
                 }
                 Comparator.DIFFERENT -> {
-                    ruleValue = getRandomValue()
-                    while (ruleValue == it.value) {
-                        ruleValue = getRandomValue()
-                    }
+                    getRandomValueDiff(it.value)
                 }
                 in listOf(Comparator.CONTAINS, Comparator.ENDS_WITH, Comparator.STARTS_WITH) -> {
-                    ruleValue = getStringToRule<T>(it)
+                    getStringToRule<T>(it)
                 }
                 Comparator.GREATER_THAN, Comparator.GREATER_THAN_EQUALS -> {
-                    ruleValue = (inc(it.value)) as T
+                    (inc(it.value)) as T
                 }
                 Comparator.LESS_THAN, Comparator.LESS_THAN_EQUALS -> {
-                    ruleValue = (dec(it.value)) as T
+                    (dec(it.value)) as T
                 }
                 else -> {
-                    ruleValue = getRandomValue()
+                    getRandomValue()
                 }
             }
             ruleValue

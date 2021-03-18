@@ -17,28 +17,20 @@ open class TestConfigService {
     open fun itsAllCorrect(testConfig: TestConfig): Boolean {
         val generateTestsExecution = testConfig.generateTestsExecution()
 
-        var corrects = 0L
-        var erros = 0L
 
         generateTestsExecution.forEach {
             testExecutionService.executeTest(it)
-
-            if (it.isCorrect()) {
-                corrects++
-            } else {
-                erros++
-            }
         }
 
-        val executionsResuts = generateTestsExecution.groupBy { it.isCorrect() }
-        val errorsTests = executionsResuts[false] ?: emptyList()
-        val correctsTests = executionsResuts[true] ?: emptyList()
+        val executionResults = generateTestsExecution.groupBy { it.isCorrect() }
+        val correctsTests = executionResults[true] ?: emptyList()
+        val errorsTests = executionResults[false] ?: emptyList()
 
         println("Total : ${generateTestsExecution.size}")
         println("Corrects Tests : ${correctsTests.size}")
         println("Failed Tests : ${errorsTests.size}")
 
-        if (erros > 0L) {
+        if (errorsTests.size > 0L) {
             println("##################### FAILED URlS ###############################")
             errorsTests.forEach {
                 it.printAsFailed()

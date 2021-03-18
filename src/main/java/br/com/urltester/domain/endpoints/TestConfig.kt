@@ -8,13 +8,13 @@ import br.com.urltester.utils.CartesianPlan
 
 
 data class TestConfig(
-        val defaultResponse: Int = 200,
+    val defaultResponse: Int = 200,
 
-        val endpoint: Endpoint,
+    val endpoint: Endpoint,
 
-        var rules: MutableList<Rule> = mutableListOf(),
+    var rules: MutableList<Rule> = mutableListOf(),
 
-        val executions: List<TestExecution> = listOf()
+    val executions: List<TestExecution> = listOf()
 
 ) {
 
@@ -25,7 +25,7 @@ data class TestConfig(
         return this
     }
 
-    fun toRule(rule: String, expectedResponse: Long): Rule {
+    private fun toRule(rule: String, expectedResponse: Long): Rule {
         val matches = RULE_REGEX.find(rule)?.groupValues.orEmpty()
 
         if (matches.isEmpty()) {
@@ -41,22 +41,23 @@ data class TestConfig(
     }
 
 
-
-
     fun generateTestsExecution(): List<TestExecution> {
         val paramValues = this.endpoint.params.map { param ->
+
             val quantity = if (param.fixed) {
                 1L
             } else {
                 5L
             }
             val paramRules = rules.filter { it.param.name == param.name }
-            val randomList = PoolFactory.getPoll(param = param).randomList(quantity = quantity, shouldHaveNullValue = param.nullable, rules = paramRules)
+            val randomList = PoolFactory.getPoll(param = param)
+                .randomList(quantity = quantity, shouldHaveNullValue = param.nullable, rules = paramRules)
             randomList.map { value ->
                 ParamValue(
-                        param = param,
-                        value = value.toString(),
-                        isNull = value == null)
+                    param = param,
+                    value = value.toString(),
+                    isNull = value == null
+                )
             }
         }
 
@@ -64,16 +65,18 @@ data class TestConfig(
 
         return combinations.map {
             val testExecution = TestExecution(
-                    testConfig = this,
-                    params = it
+                testConfig = this,
+                params = it
             )
-            val filter = this.rules.asSequence().filter { it.match(testExecution) }.map { RuleTestExecution(testExecution = testExecution, rule = it) }.toList()
+            val rulesMatches = this.rules.asSequence().filter { it.match(testExecution) }
+                .map { RuleTestExecution(testExecution = testExecution, rule = it) }.toList()
 
-            if (filter.isNotEmpty()) {
-                testExecution.expectedResponse = filter.maxBy { it.rule?.expectedResponse ?: 0L }?.rule?.expectedResponse ?: 200L
+            if (rulesMatches.isNotEmpty()) {
+                testExecution.expectedResponse =
+                    rulesMatches.maxBy { it.rule?.expectedResponse ?: 0L }?.rule?.expectedResponse ?: 200L
             }
 
-            testExecution.rules = filter
+            testExecution.rules = rulesMatches
 
             testExecution
         }
