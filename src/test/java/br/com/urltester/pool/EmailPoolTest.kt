@@ -1,5 +1,6 @@
 package br.com.urltester.pool
 
+import br.com.urltester.domain.endpoints.ParamType
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.pool.implementations.EmailPool
 import org.springframework.boot.test.context.SpringBootTest
@@ -10,7 +11,7 @@ class EmailPoolTest : ModelPoolTest(EmailPool().instance()) {
     override val QUANTITY = 10L
     override val RULEVALUE = "teste@teste.com"
     override val PARAM_NAME = "email"
-    override val TYPE = "Email"
+    override val TYPE = ParamType.EMAIL
 
     override val testComparators =
         listOf(

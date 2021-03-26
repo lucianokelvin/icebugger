@@ -1,5 +1,6 @@
 package br.com.urltester.pool
 
+import br.com.urltester.domain.endpoints.ParamType
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.pool.implementations.BooleanPool
 import org.springframework.boot.test.context.SpringBootTest
@@ -8,9 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest
 class BooleanPoolTest : ModelPoolTest(BooleanPool().instance()) {
 
     override val QUANTITY = 10L
-    override val RULEVALUE = "true"
     override val PARAM_NAME = "isChild"
-    override val TYPE = "Boolean"
+    override val RULEVALUE = "true"
+    override val TYPE = ParamType.BOOLEAN
 
     override val testComparators =
         listOf(

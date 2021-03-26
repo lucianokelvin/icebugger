@@ -19,7 +19,7 @@ open class TestConfigService {
 
 
         generateTestsExecution.forEach {
-            testExecutionService.executeTest(it)
+            testExecutionService.execute(it)
         }
 
         val executionResults = generateTestsExecution.groupBy { it.isCorrect() }

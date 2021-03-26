@@ -1,7 +1,7 @@
 package br.com.urltester.domain.endpoints
 
 
-data class Pool(
+data class PoolValues(
         val name: String,
         val description: String? = null,
         val value: String

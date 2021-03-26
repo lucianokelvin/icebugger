@@ -3,7 +3,6 @@ package br.com.urltester.domain.endpoints
 import br.com.urltester.domain.rules.Rule
 import br.com.urltester.domain.rules.RuleTestExecution
 import br.com.urltester.exceptions.InvalidRuleException
-import br.com.urltester.pool.model.PoolFactory
 import br.com.urltester.utils.CartesianPlan
 
 
@@ -18,7 +17,7 @@ data class TestConfig(
 
 ) {
 
-    val RULE_REGEX = "((.*)(\\W)(.*))+".toRegex();
+    private val RULE_REGEX = "((.*)(\\W)(.*))+".toRegex();
 
     fun addRule(rule: String, expectedResponse: Long): TestConfig {
         this.rules.add(toRule(rule, expectedResponse))
@@ -43,15 +42,15 @@ data class TestConfig(
 
     fun generateTestsExecution(): List<TestExecution> {
         val paramValues = this.endpoint.params.map { param ->
-
             val quantity = if (param.fixed) {
                 1L
             } else {
                 5L
             }
             val paramRules = rules.filter { it.param.name == param.name }
-            val randomList = PoolFactory.getPoll(param = param)
+            val randomList = param.getPool()
                 .randomList(quantity = quantity, shouldHaveNullValue = param.nullable, rules = paramRules)
+
             randomList.map { value ->
                 ParamValue(
                     param = param,

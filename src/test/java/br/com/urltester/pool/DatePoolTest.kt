@@ -1,5 +1,6 @@
 package br.com.urltester.pool
 
+import br.com.urltester.domain.endpoints.ParamType
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.pool.implementations.DatePool
 import org.springframework.boot.test.context.SpringBootTest
@@ -11,7 +12,7 @@ class DatePoolTest : ModelPoolTest(DatePool(LocalDate.of(1900, 1, 1), to = Local
     override val QUANTITY = 10L
     override val RULEVALUE = "2020-10-10"
     override val PARAM_NAME = "birthdate"
-    override val TYPE = "Date"
+    override val TYPE = ParamType.DATE
 
     override val testComparators =
         listOf(

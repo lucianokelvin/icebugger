@@ -35,7 +35,7 @@ data class TestExecution(
         val queryParameters = params.filter { it.param.apiParamType == ApiParamType.QUERY }
         if (queryParameters.isNotEmpty()) {
             val queryParameterString =
-                queryParameters.joinToString(separator = "&", prefix = "?") { it.param.name + "=" + it.value }
+                queryParameters.joinToString(separator = "&", prefix = "?") { "${it.param.name}=${it.value}" }
             url += queryParameterString
         }
 

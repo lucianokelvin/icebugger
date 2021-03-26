@@ -12,15 +12,13 @@ import org.springframework.web.client.RestTemplate
 open class TestExecutionService {
 
     @Transactional
-    open fun executeTest(testExecution: TestExecution): TestExecution {
-        val restTemplate = RestTemplate()
-        val url = testExecution.toURL()
+    open fun execute(testExecution: TestExecution): TestExecution {
         val headers = HttpEntity("parameters", testExecution.header())
 
         testExecution.response = try {
-            restTemplate
+            RestTemplate()
                 .exchange(
-                    url,
+                    testExecution.toURL(),
                     testExecution.testConfig.endpoint.method.realMethod,
                     headers,
                     String::class.java

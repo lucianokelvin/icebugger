@@ -1,6 +1,5 @@
 package br.com.urltester.pool.implementations
 
-import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.pool.model.PoolModel
 
 class BooleanPool : PoolModel<Boolean>(listOf(true, false)) {

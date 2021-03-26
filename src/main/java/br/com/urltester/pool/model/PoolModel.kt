@@ -2,6 +2,8 @@ package br.com.urltester.pool.model
 
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.domain.rules.Rule
+import br.com.urltester.utils.dec
+import br.com.urltester.utils.inc
 
 @Suppress("UNCHECKED_CAST")
 abstract class PoolModel<T>(var values: List<T> = listOf()) {
@@ -21,6 +23,7 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
                 ruleValue = getRandomValue()
             }
         }
+
         return ruleValue
     }
 
@@ -36,23 +39,6 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
         }
     }
 
-    open fun inc(value: String): String {
-        value.toIntOrNull()?.let {
-            return (it + 1).toString();
-        }
-
-        return value.plus("a")
-    }
-
-    open fun dec(value: String): String {
-        value.toIntOrNull()?.let {
-            return (it - 1).toString();
-        }
-
-        return value.dropLast(1)
-    }
-
-
     fun instance(): PoolModel<T> {
         if (poolModel == null) {
             poolModel = this
@@ -64,17 +50,18 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
     fun randomList(quantity: Long = 5L, shouldHaveNullValue: Boolean = false, rules: List<Rule> = listOf()): List<T?> {
         val list = valuesToRules(rules).toMutableList()
 
+        val quantityToGenerate = minOf(values.size, (quantity.toInt() - list.size))
 //        Fill the list to exactly quantity
-        if (list.size < quantity) {
-            list.addAll((1..(quantity - list.size)).map {
+        if (list.size < quantityToGenerate) {
+            (1..(quantityToGenerate)).forEach {
 //                Do not repeat random values
                 var randomValue: T?
                 do {
                     randomValue = this.getRandomValue()
-                } while (list.contains(randomValue) && (values.size > (quantity - list.size)))
+                } while (list.contains(randomValue))
 
-                randomValue
-            })
+                list.add(randomValue)
+            }
         }
 
 //        Put a null value if necessary
@@ -82,7 +69,7 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
             list[list.size - 1] = null
         }
 
-        return list
+        return list.distinct()
     }
 
     private fun <T> getStringToRule(rule: Rule): T {
@@ -118,10 +105,10 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
                     getStringToRule<T>(it)
                 }
                 Comparator.GREATER_THAN, Comparator.GREATER_THAN_EQUALS -> {
-                    (inc(it.value)) as T
+                    it.value.inc() as T
                 }
                 Comparator.LESS_THAN, Comparator.LESS_THAN_EQUALS -> {
-                    (dec(it.value)) as T
+                    it.value.dec() as T
                 }
                 else -> {
                     getRandomValue()

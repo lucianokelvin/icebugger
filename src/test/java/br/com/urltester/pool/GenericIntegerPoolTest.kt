@@ -1,5 +1,6 @@
 package br.com.urltester.pool
 
+import br.com.urltester.domain.endpoints.ParamType
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.pool.implementations.GenericPool
 import org.springframework.boot.test.context.SpringBootTest
@@ -10,7 +11,7 @@ class GenericIntegerPoolTest : ModelPoolTest(GenericPool(value = "1,2,3,4,5,6,7,
     override val QUANTITY = 10L
     override val RULEVALUE = "5"
     override val PARAM_NAME = "id"
-    override val TYPE = "Other"
+    override val TYPE = ParamType.OTHER
 
     override val testComparators =
         listOf(

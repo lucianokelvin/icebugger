@@ -1,6 +1,7 @@
 package br.com.urltester.pool
 
 import br.com.urltester.domain.endpoints.Param
+import br.com.urltester.domain.endpoints.ParamType
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.domain.rules.Rule
 import br.com.urltester.pool.model.PoolModel
@@ -13,7 +14,7 @@ abstract class ModelPoolTest(open val pool: PoolModel<*>) {
     abstract val QUANTITY: Long
     abstract val RULEVALUE: String
     abstract val PARAM_NAME: String
-    abstract val TYPE: String
+    abstract val TYPE: ParamType
 
     abstract val testComparators: List<Comparator>
 

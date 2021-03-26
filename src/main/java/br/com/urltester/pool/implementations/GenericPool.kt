@@ -2,7 +2,7 @@ package br.com.urltester.pool.implementations
 
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.pool.model.PoolModel
-import br.com.urltester.utils.Utils
+import br.com.urltester.utils.isNumber
 
 class GenericPool(value: String) : PoolModel<String>() {
 
@@ -16,13 +16,8 @@ class GenericPool(value: String) : PoolModel<String>() {
         return value
     }
 
-
     override fun compare(val1: String, val2: String, comparator: Comparator): Boolean {
-        val (numericValue1, numericValue2) = if (Utils.isNumeric(val1)) {
-            arrayOf(val1.toDouble(), val2.toDouble())
-        } else {
-            arrayOf(val1.length.toDouble(), val2.length.toDouble())
-        }
+        val (numericValue1, numericValue2) = getNumbers(val1, val2)
 
         return when (comparator) {
             Comparator.EQUALS -> val1 == val2
@@ -36,6 +31,12 @@ class GenericPool(value: String) : PoolModel<String>() {
             Comparator.CONTAINS -> val1.contains(val2)
             Comparator.NOT_CONTAINS -> !val1.contains(val2)
         }
+    }
+
+    private fun getNumbers(vararg values: String) = if (values.first().isNumber()) {
+        values.map { it.toDouble() }
+    } else {
+        values.map { it.length.toDouble() }
     }
 
 

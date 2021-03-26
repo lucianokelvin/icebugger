@@ -1,5 +1,6 @@
 package br.com.urltester.pool
 
+import br.com.urltester.domain.endpoints.ParamType
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.pool.implementations.NaturalPool
 import org.springframework.boot.test.context.SpringBootTest
@@ -10,7 +11,7 @@ class NaturalPoolTest : ModelPoolTest(NaturalPool().instance()) {
     override val QUANTITY = 10L
     override val RULEVALUE = "30"
     override val PARAM_NAME = "val"
-    override val TYPE = "Natural"
+    override val TYPE = ParamType.NATURAL
 
     override val testComparators =
         listOf(
