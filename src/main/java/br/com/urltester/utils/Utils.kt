@@ -10,18 +10,4 @@ fun String.isNumber(): Boolean {
     return true
 }
 
-fun String.inc(): String {
-    this.toIntOrNull()?.let {
-        return (it + 1).toString();
-    }
 
-    return this.plus("a")
-}
-
-fun String.dec(): String {
-    this.toIntOrNull()?.let {
-        return (it - 1).toString();
-    }
-
-    return this.dropLast(1)
-}

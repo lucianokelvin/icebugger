@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 class BooleanPoolTest : ModelPoolTest(BooleanPool().instance()) {
 
-    override val QUANTITY = 10L
+    override val QUANTITY = 2L
     override val PARAM_NAME = "isChild"
     override val RULEVALUE = "true"
     override val TYPE = ParamType.BOOLEAN

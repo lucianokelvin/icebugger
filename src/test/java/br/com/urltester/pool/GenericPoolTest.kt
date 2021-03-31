@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 class GenericPoolTest : ModelPoolTest(GenericPool(value = "verde, amarelo, azul, branco").instance()) {
 
-    override val QUANTITY = 10L
+    override val QUANTITY = 4L
     override val RULEVALUE = "azul"
     override val PARAM_NAME = "color"
     override val TYPE = ParamType.OTHER

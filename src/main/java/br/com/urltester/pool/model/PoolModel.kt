@@ -2,8 +2,6 @@ package br.com.urltester.pool.model
 
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.domain.rules.Rule
-import br.com.urltester.utils.dec
-import br.com.urltester.utils.inc
 
 @Suppress("UNCHECKED_CAST")
 abstract class PoolModel<T>(var values: List<T> = listOf()) {
@@ -50,7 +48,13 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
     fun randomList(quantity: Long = 5L, shouldHaveNullValue: Boolean = false, rules: List<Rule> = listOf()): List<T?> {
         val list = valuesToRules(rules).toMutableList()
 
-        val quantityToGenerate = minOf(values.size, (quantity.toInt() - list.size))
+        val poolLimit = if (values.isEmpty()) {
+            Integer.MAX_VALUE
+        } else {
+            values.size
+        }
+
+        val quantityToGenerate = minOf(poolLimit, (quantity.toInt() - list.size))
 //        Fill the list to exactly quantity
         if (list.size < quantityToGenerate) {
             (1..(quantityToGenerate)).forEach {
@@ -58,7 +62,7 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
                 var randomValue: T?
                 do {
                     randomValue = this.getRandomValue()
-                } while (list.contains(randomValue))
+                } while (list.contains(randomValue) && list.size < quantityToGenerate)
 
                 list.add(randomValue)
             }
@@ -105,10 +109,10 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
                     getStringToRule<T>(it)
                 }
                 Comparator.GREATER_THAN, Comparator.GREATER_THAN_EQUALS -> {
-                    it.value.inc() as T
+                    inc(it.value)
                 }
                 Comparator.LESS_THAN, Comparator.LESS_THAN_EQUALS -> {
-                    it.value.dec() as T
+                    dec(it.value)
                 }
                 else -> {
                     getRandomValue()
@@ -117,5 +121,22 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
             ruleValue
         }.distinct()
     }
+
+    open fun inc(value: String): T {
+        value.toIntOrNull()?.let {
+            return (it + 1).toString() as T
+        }
+
+        return value.plus("a") as T
+    }
+
+    open fun dec(value: String): T {
+        value.toIntOrNull()?.let {
+            return (it - 1).toString() as T
+        }
+
+        return value.dropLast(1) as T
+    }
+
 
 }
