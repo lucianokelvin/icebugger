@@ -8,4 +8,12 @@ class BooleanPool : PoolModel<Boolean>(listOf(true, false)) {
         return value == "true"
     }
 
+    override fun inc(value: String): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override fun dec(value: String): Boolean {
+        TODO("Not yet implemented")
+    }
+
 }

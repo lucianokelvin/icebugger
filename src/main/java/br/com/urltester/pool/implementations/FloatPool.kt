@@ -25,4 +25,12 @@ class FloatPool(private val min: Float = Float.MIN_VALUE, private val max: Float
             else -> false
         }
     }
+
+    override fun inc(value: String): Float {
+        return value.toFloat().inc()
+    }
+
+    override fun dec(value: String): Float {
+        return value.toFloat().dec()
+    }
 }

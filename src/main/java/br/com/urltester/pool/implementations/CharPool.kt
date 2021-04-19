@@ -9,4 +9,13 @@ class CharPool : PoolModel<Char>(('a'..'z').toList()) {
         return value?.get(0) ?: throw InvalidValueException(value ?: "")
     }
 
+    override fun inc(value: String): Char {
+        return convert(value).inc()
+    }
+
+    override fun dec(value: String): Char {
+        return convert(value).dec()
+    }
+
+
 }

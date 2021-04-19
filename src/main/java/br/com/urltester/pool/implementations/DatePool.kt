@@ -41,13 +41,11 @@ class DatePool(private val from: LocalDate = LocalDate.MIN, private val to: Loca
     }
 
     override fun dec(value: String): LocalDate {
-        val converted = convert(value)
-        return converted!!.minusDays(1)
+        return convert(value)!!.minusDays(1)
     }
 
     override fun inc(value: String): LocalDate {
-        val converted = convert(value)
-        return converted!!.plusDays(1)
+        return convert(value)!!.plusDays(1)
     }
 
 

@@ -25,4 +25,12 @@ class DoublePool(private val min: Double = Double.MIN_VALUE, private val max: Do
             else -> false
         }
     }
+
+    override fun inc(value: String): Double {
+       return  value.toDouble().inc()
+    }
+
+    override fun dec(value: String): Double {
+        return  value.toDouble().dec()
+    }
 }

@@ -122,21 +122,8 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
         }.distinct()
     }
 
-    open fun inc(value: String): T {
-        value.toIntOrNull()?.let {
-            return (it + 1).toString() as T
-        }
+    abstract fun inc(value: String): T
 
-        return value.plus("a") as T
-    }
-
-    open fun dec(value: String): T {
-        value.toIntOrNull()?.let {
-            return (it - 1).toString() as T
-        }
-
-        return value.dropLast(1) as T
-    }
-
+    abstract fun dec(value: String): T
 
 }

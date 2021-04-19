@@ -39,5 +39,21 @@ class GenericPool(value: String) : PoolModel<String>() {
         values.map { it.length.toDouble() }
     }
 
+    override fun inc(value: String): String {
+        return if (value.isNumber()) {
+            value.toDouble().inc().toString()
+        } else {
+            value.plus("a")
+        }
+    }
+
+    override fun dec(value: String): String {
+        return if (value.isNumber()) {
+            value.toDouble().dec().toString()
+        } else {
+            value.dropLast(1)
+        }
+    }
+
 
 }

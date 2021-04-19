@@ -31,4 +31,12 @@ open class StringPool(private val maxSize: Int = 10) : PoolModel<String>() {
         }
     }
 
+    override fun inc(value: String): String {
+        return value.plus("a")
+    }
+
+    override fun dec(value: String): String {
+        return value.dropLast(1)
+    }
+
 }
