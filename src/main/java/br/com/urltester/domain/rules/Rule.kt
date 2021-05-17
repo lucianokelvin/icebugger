@@ -18,9 +18,9 @@ data class Rule(
 
     fun match(testExecution: TestExecution): Boolean {
         val matchParam = testExecution.params.filter { it.param == this.param }
-        val poll = this.param.getPool()
+        val pool = this.param.type.pool(param.poolValues?.value)
         matchParam.forEach {
-            if (poll.compare(it.value!!, this.value, comparator)) {
+            if (pool.compare(it.value!!, this.value, comparator)) {
                 return true
             }
         }

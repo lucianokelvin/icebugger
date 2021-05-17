@@ -6,7 +6,7 @@ import br.com.urltester.pool.implementations.FloatPool
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class FloatPoolTest : ModelPoolTest(FloatPool().instance()) {
+class FloatPoolTest : ModelPoolTest(FloatPool()) {
 
     override val QUANTITY = 10L
     override val RULEVALUE = "20"

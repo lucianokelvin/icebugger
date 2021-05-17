@@ -6,7 +6,7 @@ import br.com.urltester.pool.implementations.IntegerPool
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class IntegerPoolTest : ModelPoolTest(IntegerPool().instance()) {
+class IntegerPoolTest : ModelPoolTest(IntegerPool()) {
 
     override val QUANTITY = 10L
     override val RULEVALUE = "10"

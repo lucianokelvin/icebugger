@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import java.time.LocalDate
 
 @SpringBootTest
-class DatePoolTest : ModelPoolTest(DatePool(LocalDate.of(1900, 1, 1), to = LocalDate.now()).instance()) {
+class DatePoolTest : ModelPoolTest(DatePool(LocalDate.of(1900, 1, 1), to = LocalDate.now())) {
 
     override val QUANTITY = 10L
     override val RULEVALUE = "2020-10-10"

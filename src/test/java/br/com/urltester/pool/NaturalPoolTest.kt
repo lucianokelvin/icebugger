@@ -6,7 +6,7 @@ import br.com.urltester.pool.implementations.NaturalPool
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class NaturalPoolTest : ModelPoolTest(NaturalPool().instance()) {
+class NaturalPoolTest : ModelPoolTest(NaturalPool()) {
 
     override val QUANTITY = 10L
     override val RULEVALUE = "30"

@@ -20,8 +20,6 @@ class GenericPool(value: String) : PoolModel<String>() {
         val (numericValue1, numericValue2) = getNumbers(val1, val2)
 
         return when (comparator) {
-            Comparator.EQUALS -> val1 == val2
-            Comparator.DIFFERENT -> val1 != val2
             Comparator.GREATER_THAN -> numericValue1 > numericValue2
             Comparator.LESS_THAN -> numericValue1 < numericValue2
             Comparator.GREATER_THAN_EQUALS -> numericValue1 >= numericValue2
@@ -30,6 +28,7 @@ class GenericPool(value: String) : PoolModel<String>() {
             Comparator.ENDS_WITH -> val1.endsWith(val2)
             Comparator.CONTAINS -> val1.contains(val2)
             Comparator.NOT_CONTAINS -> !val1.contains(val2)
+            else -> super.compare(val1, val2, comparator)
         }
     }
 

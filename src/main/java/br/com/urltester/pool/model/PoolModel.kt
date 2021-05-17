@@ -2,16 +2,19 @@ package br.com.urltester.pool.model
 
 import br.com.urltester.domain.rules.Comparator
 import br.com.urltester.domain.rules.Rule
+import br.com.urltester.exceptions.InvalidComparatorException
 
 @Suppress("UNCHECKED_CAST")
 abstract class PoolModel<T>(var values: List<T> = listOf()) {
-
-    private var poolModel: PoolModel<T>? = null
 
     open fun getRandomValue(): T {
         return values.random()
     }
 
+
+    open fun defaultValues(): List<T> {
+        return listOf()
+    }
 
     open fun getRandomValueDiff(different: String? = null): T {
         var ruleValue = getRandomValue()
@@ -33,16 +36,8 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
         return when (comparator) {
             Comparator.EQUALS -> convert(val1) == convert(val2)
             Comparator.DIFFERENT -> convert(val1) != convert(val2)
-            else -> throw RuntimeException("Comparador inválido")
+            else -> throw InvalidComparatorException(comparator)
         }
-    }
-
-    fun instance(): PoolModel<T> {
-        if (poolModel == null) {
-            poolModel = this
-        }
-
-        return poolModel!!
     }
 
     fun randomList(quantity: Long = 5L, shouldHaveNullValue: Boolean = false, rules: List<Rule> = listOf()): List<T?> {
@@ -73,6 +68,7 @@ abstract class PoolModel<T>(var values: List<T> = listOf()) {
             list[list.size - 1] = null
         }
 
+        list.addAll(defaultValues())
         return list.distinct()
     }
 

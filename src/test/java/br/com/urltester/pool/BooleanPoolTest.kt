@@ -6,7 +6,7 @@ import br.com.urltester.pool.implementations.BooleanPool
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class BooleanPoolTest : ModelPoolTest(BooleanPool().instance()) {
+class BooleanPoolTest : ModelPoolTest(BooleanPool()) {
 
     override val QUANTITY = 2L
     override val PARAM_NAME = "isChild"

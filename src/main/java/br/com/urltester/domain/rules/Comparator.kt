@@ -11,4 +11,5 @@ enum class Comparator(var symbol: String) {
     ENDS_WITH("*%"),
     CONTAINS("%*%"),
     NOT_CONTAINS("!%*%");
+
 }

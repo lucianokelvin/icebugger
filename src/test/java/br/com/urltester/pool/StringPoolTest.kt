@@ -6,7 +6,7 @@ import br.com.urltester.pool.implementations.StringPool
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class StringPoolTest : ModelPoolTest(StringPool().instance()) {
+class StringPoolTest : ModelPoolTest(StringPool()) {
 
     override val QUANTITY = 10L
     override val RULEVALUE = "joao"

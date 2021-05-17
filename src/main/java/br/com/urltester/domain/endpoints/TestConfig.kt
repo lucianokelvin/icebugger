@@ -14,10 +14,9 @@ data class TestConfig(
     var rules: MutableList<Rule> = mutableListOf(),
 
     val executions: List<TestExecution> = listOf()
-
 ) {
 
-    private val RULE_REGEX = "((.*)(\\W)(.*))+".toRegex();
+    private val REGEX = "((.*)(\\W)(.*))+".toRegex()
 
     fun addRule(rule: String, expectedResponse: Long): TestConfig {
         this.rules.add(toRule(rule, expectedResponse))
@@ -25,7 +24,7 @@ data class TestConfig(
     }
 
     private fun toRule(rule: String, expectedResponse: Long): Rule {
-        val matches = RULE_REGEX.find(rule)?.groupValues.orEmpty()
+        val matches = REGEX.find(rule)?.groupValues.orEmpty()
 
         if (matches.isEmpty()) {
             throw InvalidRuleException(rule)
@@ -47,10 +46,11 @@ data class TestConfig(
                 5L
             }
             val paramRules = rules.filter { it.param.name == param.name }
-            val randomList = param.getPool()
+            val randomValues = param.type.pool(param.poolValues?.value)
                 .randomList(quantity = quantity, shouldHaveNullValue = param.nullable, rules = paramRules)
 
-            randomList.map { value ->
+
+            randomValues.map { value ->
                 ParamValue(
                     param = param,
                     value = value.toString(),

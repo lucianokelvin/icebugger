@@ -30,10 +30,17 @@ open class TestConfigService {
         println("Corrects Tests : ${correctsTests.size}")
         println("Failed Tests : ${errorsTests.size}")
 
-        if (errorsTests.size > 0L) {
+        if (errorsTests.isNotEmpty()) {
             println("##################### FAILED URlS ###############################")
             errorsTests.forEach {
                 it.printAsFailed()
+            }
+            println("#################################################################")
+        }
+        if (correctsTests.isNotEmpty()) {
+            println("##################### CORRECT URlS ###############################")
+            correctsTests.forEach {
+                it.printAsCorrect()
             }
             println("#################################################################")
         }
@@ -41,6 +48,5 @@ open class TestConfigService {
         return errorsTests.isEmpty()
 
     }
-
 
 }

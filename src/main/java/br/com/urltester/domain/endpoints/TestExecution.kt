@@ -47,6 +47,11 @@ data class TestExecution(
         println(" | Expected Response was $expectedResponse but real was $response")
     }
 
+    fun printAsCorrect() {
+        print(this.toURL())
+        println(" | Expected Response was $expectedResponse")
+    }
+
 
     fun header(): HttpHeaders {
         val paramsHeaders = params.filter { it.param.apiParamType == ApiParamType.HEADER }

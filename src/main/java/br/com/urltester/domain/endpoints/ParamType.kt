@@ -1,17 +1,27 @@
 package br.com.urltester.domain.endpoints
 
 import br.com.urltester.pool.implementations.*
-import kotlin.reflect.KClass
+import br.com.urltester.pool.model.PoolModel
 
-enum class ParamType(val poolModel: KClass<*>) {
-    CHAR(CharPool::class),
-    STRING(StringPool::class),
-    NATURAL(NaturalPool::class),
-    INTEGER(IntegerPool::class),
-    DOUBLE(DoublePool::class),
-    FLOAT(FloatPool::class),
-    EMAIL(EmailPool::class),
-    BOOLEAN(BooleanPool::class),
-    DATE(DatePool::class),
-    OTHER(GenericPool::class);
+enum class ParamType(val poolModel: PoolModel<*>) {
+    CHAR(CharPool()),
+    STRING(StringPool()),
+    NATURAL(NaturalPool()),
+    INTEGER(IntegerPool()),
+    DOUBLE(DoublePool()),
+    FLOAT(FloatPool()),
+    EMAIL(EmailPool()),
+    BOOLEAN(BooleanPool()),
+    DATE(DatePool()),
+    OTHER(GenericPool(""));
+
+    fun pool(values: String?): PoolModel<*> {
+        if (this == OTHER && values != null) {
+            return GenericPool(values)
+        }
+
+        return this.poolModel
+    }
+
+
 }

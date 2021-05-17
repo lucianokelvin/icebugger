@@ -6,7 +6,7 @@ import br.com.urltester.pool.implementations.EmailPool
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class EmailPoolTest : ModelPoolTest(EmailPool().instance()) {
+class EmailPoolTest : ModelPoolTest(EmailPool()) {
 
     override val QUANTITY = 10L
     override val RULEVALUE = "teste@teste.com"

@@ -6,7 +6,7 @@ import br.com.urltester.pool.implementations.DoublePool
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class DoublePoolTest : ModelPoolTest(DoublePool().instance()) {
+class DoublePoolTest : ModelPoolTest(DoublePool()) {
 
     override val QUANTITY = 10L
     override val RULEVALUE = "20"
